@@ -1,0 +1,59 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Company {
+  _id: String
+  name: String!
+  description: String!
+  address: String!
+  officialName: String
+  CEO: String
+  foundedDate: DateTime
+  founders: [String!]
+  employees: Int
+  website: String
+  products: [String!]
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  companies: [Company!]!
+  company(id: String!): Company!
+}
+
+type Mutation {
+  createCompany(companyInput: CreateCompanyDTO!): Company!
+  updateCompany(id: String!, companyInput: UpdateCompanyDTO!): Company!
+  deleteCompany(id: String!): Company!
+}
+
+input CreateCompanyDTO {
+  name: String!
+  description: String!
+  address: String
+  officialName: String
+  CEO: String
+  foundedDate: DateTime
+  founders: [String!]
+  employees: Int!
+  website: String
+  products: [String!]
+}
+
+input UpdateCompanyDTO {
+  name: String
+  description: String
+  address: String
+  officialName: String
+  CEO: String
+  foundedDate: DateTime
+  founders: [String!]
+  employees: Int
+  website: String
+  products: [String!]
+}
