@@ -11,19 +11,23 @@ export class CompanyService {
     @InjectModel(Company.name) private companyModel: Model<Company>,
   ) {}
 
+  /**Find all companies */
   findAll() {
     return this.companyModel.find().exec();
   }
 
+  /**Find Company by Id */
   findById(id: string) {
     return this.companyModel.findById(id).exec();
   }
 
+  /** Create company */
   create(companyData: CreateCompanyDTO) {
     const newCompany = new this.companyModel(companyData);
     return newCompany.save();
   }
 
+  /**Update Company */
   update(id: string, companyData: UpdateCompanyDTO) {
     return this.companyModel
       .findByIdAndUpdate(id, companyData, {
@@ -32,6 +36,7 @@ export class CompanyService {
       .exec();
   }
 
+  /**Delete Company */
   delete(id: string) {
     return this.companyModel.findByIdAndDelete(id).exec();
   }

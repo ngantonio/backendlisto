@@ -6,6 +6,7 @@ import {
   IsArray,
   IsDate,
   IsOptional,
+  IsString,
 } from 'class-validator';
 
 @InputType()
@@ -38,14 +39,13 @@ export class CreateCompanyDTO {
 
   @Field({ nullable: true })
   @IsOptional()
-  foundedDate?: Date;
+  foundedDate?: string;
 
-  //@IsArray()
   @Field((type) => [String], { nullable: true })
   @IsOptional()
   founders?: Array<string>;
 
-  @Field((type) => Int)
+  @Field((type) => Int, { nullable: true })
   @IsOptional()
   employees?: number;
 

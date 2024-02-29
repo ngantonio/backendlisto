@@ -24,7 +24,26 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Se presenta una API-REST construida bajo *Nest.js*, utilizando como base de datos a *MongoDB* y *GraphQL* como lenguaje de consultas entre la base de datos y el cliente.
+
+Se ha construido con un enfoque sencillo, exponiendo un C.R.U.D para un único Modelo llamado "Company"
+
+Se exponen las siguientes Querys:
+
+* **companies**: Obtiene todas las compañías almacenadas en base de datos.
+* **company(id: IdCompany)**: Obtiene una única compañía dado su ID.
+
+Se exponen las siguientes Mutaciones:
+
+* **createCompany** (companyInput): Donde companyInput es el esquema que modela los atributos que he considerado que describen de manera semantica a una compañia, tales como como: name, description, address, officialName, CEO, foundedDate, founders, employees, website y products. **Donde los primeros 3 son obligatorios**
+
+* **updateCompany(id, companyInput)**: La cual recibe un parámetro identificador de la compañía que se quiere actualizar y posteriormente los datos de la misma bajo el esquema companyInput.
+
+* **deleteCompany(id: IdCompany)**: La cual recibe un parámetro identificador de la compañia que se quiere eliminar.
+
+Adicional a ello, se han implementado algunas validaciones necesarias a estos atributos en el esquema.
+
+* Para ejecutar el proyecto, basta colocar **http://localhost:3000/graphql** en el navegador
 
 ## Installation
 

@@ -9,17 +9,12 @@ type Company {
   address: String!
   officialName: String
   CEO: String
-  foundedDate: DateTime
+  foundedDate: String
   founders: [String!]
   employees: Int
   website: String
   products: [String!]
 }
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 type Query {
   companies: [Company!]!
@@ -38,9 +33,9 @@ input CreateCompanyDTO {
   address: String
   officialName: String
   CEO: String
-  foundedDate: DateTime
+  foundedDate: String
   founders: [String!]
-  employees: Int!
+  employees: Int
   website: String
   products: [String!]
 }
@@ -51,7 +46,7 @@ input UpdateCompanyDTO {
   address: String
   officialName: String
   CEO: String
-  foundedDate: DateTime
+  foundedDate: String
   founders: [String!]
   employees: Int
   website: String

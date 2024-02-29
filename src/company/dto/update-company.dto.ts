@@ -6,13 +6,15 @@ import {
   IsArray,
   IsDate,
   IsOptional,
+  IsString,
 } from 'class-validator';
 
 @InputType()
 export class UpdateCompanyDTO {
   @IsNotEmpty({
-    message: 'Company name is required',
+    message: 'Company name  cannot be empty',
   })
+  @IsString()
   @Field({ nullable: true })
   @IsOptional()
   name?: string;
@@ -22,6 +24,7 @@ export class UpdateCompanyDTO {
   })
   @IsOptional()
   @Field({ nullable: true })
+  @IsString()
   description?: string;
 
   @IsNotEmpty({
@@ -41,7 +44,7 @@ export class UpdateCompanyDTO {
 
   @Field({ nullable: true })
   @IsOptional()
-  foundedDate?: Date;
+  foundedDate?: string;
 
   //@IsArray()
   @Field((type) => [String], { nullable: true })

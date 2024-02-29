@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 @Schema()
 export class Company {
   @Field(() => String, { nullable: true })
-  _id: string;
+  _id: mongoose.Schema.Types.ObjectId;
 
   @Field()
   @Prop({ required: true })
@@ -31,7 +31,7 @@ export class Company {
 
   @Field({ nullable: true })
   @Prop()
-  foundedDate?: Date;
+  foundedDate?: string;
 
   @Field((type) => [String], { nullable: true })
   @Prop()

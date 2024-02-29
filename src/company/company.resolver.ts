@@ -22,7 +22,9 @@ export class CompanyResolver {
 
   @Mutation((returns) => Company)
   createCompany(@Args('companyInput') companyInput: CreateCompanyDTO) {
-    return this.companyService.create(companyInput);
+    const algo = this.companyService.create(companyInput);
+    console.log('EL ERROR ES: ', algo);
+    return algo;
   }
 
   @Mutation((returns) => Company)
